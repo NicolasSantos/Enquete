@@ -1,0 +1,28 @@
+<div class="container margin-content">
+  <div class="card">
+    <div class="card-header card-header-style">
+      <div class="row">
+        <h1 class="col-12">Consultar Enquete</h1>
+        <div class="input-group col-12 col-md-6 col-lg-4 padding-input">
+          <input id="poll_id" type="number" class="form-control" [(ngModel)]="id" placeholder="Código da Enquete" name="poll_id" #poll_id="ngModel">
+          <span class="input-group-addon search" id="basic-addon1" [ngClass]="{'disabled-search': !id}"><a (click)="Search()">Consultar</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-block">
+      <div class="row card-content col-12">
+        <div *ngIf="poll" class="col-12">
+          <h3 class="col-12"><span class="field-name">Descrição da Enquete: </span>{{poll._poll_description}}</h3>
+          <h3 class="col-12 field-name">Opções:</h3>
+          <div class="row padding-options">
+            <div class="col-12 padding-option-rows" *ngFor="let option of poll._options">
+              <div class="row underline-row">
+                <h5 class="col-4 col-sm-4 col-md-2"><a class="vote-link" (click)="Vote(option)" title="Clique para votar nesta opção">Votar</a></h5>
+                <h5 class="col-8 col-sm-8 col-md-10"><span class="field-name"></span>{{option.option_description}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

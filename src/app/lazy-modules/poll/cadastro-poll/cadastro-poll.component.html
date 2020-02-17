@@ -1,0 +1,47 @@
+<div class="container margin-content">
+  <div class="card">
+    <div class="card-header card-header-style">
+      <div class="row">
+        <h1 class="col-12">Cadastrar Enquete</h1>
+      </div>
+    </div>
+    <div class="card-block">
+      <form id="formCadastroPoll" class="col-12" (ngSubmit)="onSubmit()" #cadastroPollForm="ngForm">
+        <div class="row">
+          <div class="form-group col-12 col-md-6">
+            <label for="poll_description">Descrição da Enquete (Obrigatório)</label>
+            <input id="poll_description" type="text" class="form-control" required maxlength="255" [(ngModel)]="poll._poll_description" placeholder="Descrição" name="poll_description" #poll_description="ngModel">
+            <div *ngIf="poll_description.errors && (poll_description.dirty || poll_description.touched)" class="alert alert-danger">
+              <div [hidden]="!poll_description.errors.required">
+                A descrição da enquete é obrigatória
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="form-group col-12 col-md-6" *ngFor="let option of poll._options; let i = index; trackBy:trackByFn;">
+                <div *ngIf="i < 2">
+                  <label for="poll_option_{{i}}">Opção {{i + 1}} (Obrigatório)</label>
+                  <input id="poll_option_{{i}}" type="text" class="form-control" required maxlength="150" [(ngModel)]="poll._options[i]" placeholder="Descrição da Opção" name="poll_option_{{i}}" #poll_option="ngModel" (ngModelChange)="changeModelOption($event, i)">
+                  <div *ngIf="poll_option.errors && (poll_option.dirty || poll_option.touched)" class="alert alert-danger">
+                    <div [hidden]="!poll_option.errors.required">
+                      A primeira e segunda opções são obrigatórias
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="i >= 2">
+                  <label for="poll_option_opcional_{{i}}">Opção {{i + 1}} (Opcional)</label>
+                  <input id="poll_option_opcional_{{i}}" type="text" class="form-control" maxlength="150" [(ngModel)]="poll._options[i]" placeholder="Descrição da Opção" name="poll_option_opcional_{{i}}" #poll_option_opcional="ngModel" (ngModelChange)="changeModelOption($event, i)">
+                  <div *ngIf="poll_option_opcional.errors && (poll_option_opcional.dirty || poll_option_opcional.touched)" class="alert alert-danger">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-12">
+                <button class="btn btn-success col-12 col-sm-6 col-md-2" type="submit" [disabled]="!cadastroPollForm.form.valid">Cadastrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>

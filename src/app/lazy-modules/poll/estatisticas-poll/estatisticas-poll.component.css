@@ -1,0 +1,24 @@
+.padding-input{
+  padding-top: 3%;
+}
+
+.search{
+  cursor: pointer;
+  background-color: #2E353D;
+  color: #e1ffff;
+}
+
+.search:hover{
+  background-color: #4f5b69;
+}
+
+.disabled-search {
+  background-color: #e6e6e6;
+  color: #292b2c;
+  pointer-events: none;
+  cursor: default;
+}
+
+.field-name{
+  font-weight: bold;
+}

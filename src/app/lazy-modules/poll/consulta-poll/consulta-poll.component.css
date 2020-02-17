@@ -1,0 +1,58 @@
+.padding-input{
+  padding-top: 3%;
+}
+
+.search{
+  cursor: pointer;
+  background-color: #2E353D;
+  color: #e1ffff;
+}
+
+.search:hover{
+  background-color: #4f5b69;
+}
+
+.card-content{
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.field-name{
+  font-weight: bold;
+}
+
+.padding-options{
+  padding-top: 10px;
+  padding-left: 40px;
+}
+
+.disabled-search {
+  background-color: #e6e6e6;
+  color: #292b2c;
+  pointer-events: none;
+  cursor: default;
+}
+
+.padding-option-colums{
+  padding: 0;
+}
+
+.vote-link{
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #607D8B !important;
+}
+
+.vote-link:hover{
+  border-bottom: 2px solid #4f5b69 !important;
+  color: #4f5b69 !important;
+}
+
+.padding-option-rows{
+  padding-bottom: 10px;
+}
+
+.underline-row{
+  border-bottom: 2px solid #9E9E9E;
+}
